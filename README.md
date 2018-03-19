@@ -9,8 +9,8 @@
 |password|string |null: false|
 
 ### Association
-- has_many   :chats
-- belongs_to :room_user
+- has_many :chats
+- has_many :rooms, through: :room_users
 
 
 ## chatsテーブル
@@ -35,8 +35,8 @@
 |name |string|null: false|
 
 ### Association
-- belongs_to :user
-- has_many   :chats
+- has_many :users, through: :room_users
+- has_many :chats
 
 
 ## room_userテーブル
@@ -48,5 +48,5 @@
 
 
 ### Association
-has_many :users
-has_many :rooms
+belongs_to :user
+belongs_to :room

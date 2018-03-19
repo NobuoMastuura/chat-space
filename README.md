@@ -5,12 +5,12 @@
 |------|----|-------|
 |id      |integer|null: false, foreign_key: true|
 |name    |string |null: false|
-|email   |string |null: false|
+|email   |string |null: false, add_index unique: true|
 |password|string |null: false|
 
 ### Association
-- has_many :chats
-- has_many :rooms
+- has_many   :chats
+- belongs_to :room_user
 
 
 ## chatsテーブル
@@ -18,8 +18,10 @@
 |------|----|-------|
 |id            |integer|null: false, foreign_key: true|
 |content       |text   |null: false|
-|room_id  |integer|null: false, foreign_key: true|
+|image         |text|
+|room_id       |integer|null: false, foreign_key: true|
 |user_id       |integer|null: false, foreign_key: true|
+
 
 ### Association
 - belongs_to :user
@@ -34,7 +36,7 @@
 
 ### Association
 - belongs_to :user
-- has_many   :rooms
+- has_many   :chats
 
 
 ## room_userテーブル
@@ -46,5 +48,5 @@
 
 
 ### Association
-belongs_to :user
-belongs_to :room
+has_many :users
+has_many :rooms

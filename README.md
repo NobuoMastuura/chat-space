@@ -10,17 +10,18 @@
 
 ### Association
 - has_many :chats
+- has_many :room_users
 - has_many :rooms, through: :room_users
 
 
 ## chatsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|id            |integer|null: false, foreign_key: true|
-|content       |text   |null: false|
-|image         |text|
-|room_id       |integer|null: false, foreign_key: true|
-|user_id       |integer|null: false, foreign_key: true|
+|id       |integer|null: false|
+|content  |text|
+|image    |string|
+|room_id  |integer|null: false, foreign_key: true|
+|user_id  |integer|null: false, foreign_key: true|
 
 
 ### Association
@@ -31,18 +32,19 @@
 ## roomsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|id        |integer|null: false, foreign_key: true|
-|name |string|null: false|
+|id    |integer|null: false|
+|name  |string |null: false|
 
 ### Association
+- has_many :room_users
 - has_many :users, through: :room_users
 - has_many :chats
 
 
-## room_userテーブル
+## room_usersテーブル
 |Column|Type|Options|
 |------|----|-------|
-|id|integer|null: false|
+|id     |integer|null: false|
 |user_id|integer|null: false, foreign_key: true|
 |room_id|integer|null: false, foreign_key: true|
 

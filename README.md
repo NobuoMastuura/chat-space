@@ -1,24 +1,54 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## usersテーブル
+|Column|Type|Options|
+|------|----|-------|
+|id      |integer|null: false, foreign_key: true|
+|name    |string |null: false|
+|email   |string |null: false, add_index unique: true|
+|password|string |null: false|
 
-Things you may want to cover:
+### Association
+- has_many :chats
+- has_many :room_users
+- has_many :rooms, through: :room_users
 
-* Ruby version
 
-* System dependencies
+## chatsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|id       |integer|null: false|
+|content  |text|
+|image    |string|
+|room_id  |integer|null: false, foreign_key: true|
+|user_id  |integer|null: false, foreign_key: true|
 
-* Configuration
 
-* Database creation
+### Association
+- belongs_to :user
+- belongs_to :room
 
-* Database initialization
 
-* How to run the test suite
+## roomsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|id    |integer|null: false|
+|name  |string |null: false|
 
-* Services (job queues, cache servers, search engines, etc.)
+### Association
+- has_many :room_users
+- has_many :users, through: :room_users
+- has_many :chats
 
-* Deployment instructions
 
-* ...
+## room_usersテーブル
+|Column|Type|Options|
+|------|----|-------|
+|id     |integer|null: false|
+|user_id|integer|null: false, foreign_key: true|
+|room_id|integer|null: false, foreign_key: true|
+
+
+### Association
+belongs_to :user
+belongs_to :room

@@ -13,14 +13,12 @@
 - has_many :rooms
 
 
-
-
 ## chatsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |id            |integer|null: false, foreign_key: true|
 |content       |text   |null: false|
-|chat_room_id  |integer|null: false, foreign_key: true|
+|room_id  |integer|null: false, foreign_key: true|
 |user_id       |integer|null: false, foreign_key: true|
 
 ### Association
@@ -32,9 +30,21 @@
 |Column|Type|Options|
 |------|----|-------|
 |id        |integer|null: false, foreign_key: true|
-|room_name |string|null: false|
-
+|name |string|null: false|
 
 ### Association
 - belongs_to :user
 - has_many   :rooms
+
+
+## room_userテーブル
+|Column|Type|Options|
+|------|----|-------|
+|id|integer|null: false|
+|user_id|integer|null: false, foreign_key: true|
+|room_id|integer|null: false, foreign_key: true|
+
+
+### Association
+belongs_to :user
+belongs_to :room

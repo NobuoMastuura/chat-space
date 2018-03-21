@@ -1,0 +1,165 @@
+.contents {
+	height: 100%;
+	width: 100%;
+	.side-content {
+		height: 100%;
+		width: 300px;
+		float: left;
+		.side-top {
+			height: 10vh;
+			width: 100%;
+			background-color: #213042;
+			position: relative;
+				.user_name {
+					float: left;
+					font-size: 20px;
+					color: white;
+					padding: 20px 0 20px 40px;
+				}
+				.menu_button {
+					position: absolute;
+					top: 24px;
+					right: 20px;
+					.fa-new {
+						color: white;
+					}
+					.fa-setting {
+						color: white;
+					}
+				}
+		}
+		.side-bottom {
+			height: calc(100vh - 10vh);
+			width: 100%;
+			background-color: #293c52;
+				.chat_box {
+					height: 100px;
+					width: 200px;
+					padding: 10px 0 10px 40px;
+					.user_name {
+						color: white;
+					}
+					.user_content {
+						color: white;
+					}
+				}
+				.chat_box2 {
+					height: 100px;
+					width: 200px;
+					padding: 10px 0 10px 40px;
+					.user_name2 {
+						color: white;
+					}
+					.user_content2 {
+						color: white;		
+					}			
+				}
+		}
+	}
+	.main-content {
+		height: 100%;
+		width: calc( 100vw - 300px);
+		float: left;
+
+		.main-top {
+			height: 10vh;
+			width: 100%;
+			background-color: #FFFFFF;
+			position: relative;
+
+			.top_info {
+				.user_name {
+					padding: 20px 0 0 40px;
+				}
+				.chat_members {
+					font-size: 14px;
+					opacity: 0.5;
+					padding:10px 0 0 40px 
+				}
+			}
+			.edit_button {
+				height: 50px;
+				width: 80px;
+				font-size: 20px;
+				color: #35537a;
+				background-color: white;
+				position: absolute;
+				top: 20px;
+				right: 40px;
+				border: solid #35537a;
+			}
+			
+		}
+		.main-center {
+			height: calc( 100vh - 20vh);
+			width: 100%;
+			background-color: #FAFAFA;
+			.chat_content {
+				height: 100px;
+				.chat_box {
+					height: 100px;
+					width: 100%;
+					.chat_info {
+						padding: 50px 0 10px 40px;
+						.chat_name {
+							float: left;
+						}
+						.chat_data {
+							padding-left: 10px; 
+							opacity: 0.5;
+							font-size: 13px;
+							float: left;
+						}
+					}
+					.chat_content {
+						clear: both;
+						padding: 10px 0 10px 40px;
+					}
+				}
+			}
+		}
+
+		.main-bottom {
+			height: 10vh; 
+			width: 100%;
+			background-color: gray;
+			position: relative;
+			.content_message {
+				height: 50px;
+				width: 900px;
+				background-color: white;
+				position: absolute;
+				top: 16px;
+				left: 40px;
+				.message_content {
+					padding: 14px;
+					opacity: 0.5;
+				}
+				.fa-image {
+					position: absolute;
+					top: 16px;
+					right: 20px;
+				}
+			}
+			input {
+				height: 50px;
+				width: 100px;
+				color: #35537a;
+				border: solid #35537a;
+				background-color: white;
+				position: absolute;
+				top: 16px;
+				right: 40px;
+			}
+			
+		}
+	}
+}
+
+// ..contents
+// 	.side-content
+// 		.side-top
+// 		.side-bottom
+// 	.main-content
+// 		.main-top
+// 		.main-bottom

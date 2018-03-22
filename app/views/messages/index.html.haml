@@ -3,9 +3,9 @@
 		.side-top
 			.side-top__user-name 松浦展大
 			.side-top__menu--btn
-				= link_to "", method: :create do
+				= link_to "", method: "", class: "new-btn" do
 					%i.fa.fa-edit.fa-lg.fa-new
-				= link_to "", method: :edit do
+				= link_to "", method: "", class: "setting-btn" do
 					%i.fa.fa-cog.fa-lg.fa-setting
 		.side-bottom
 			= render(partial: "chat-info")
@@ -24,6 +24,3 @@
 				%i.fa.fa-image.fa-l-image
 					%input{type: "file"}
 			%input{type: "submit", name: "send-btn", value: "Send"}
-
-
-

@@ -18,21 +18,26 @@
 			width: 100%;
 			background-color: #213042;
 			position: relative;
-				.side-top__user-name {
+				&__user-name {
 					float: left;
 					font-size: 20px;
 					color: white;
 					padding: 20px 0 20px 40px;
 				}
-				.side-top__menu--btn {
+				&__menu--btn {
 					position: absolute;
 					top: 24px;
 					right: 20px;
-					.fa-new {
-						color: white;
+					.new-btn{
+						text-decoration: none;
+						.fa-new {
+							color: white;
+						}
 					}
-					.fa-setting {
-						color: white;
+					.setting-btn{
+						.fa-setting {
+							color: white;
+						}
 					}
 				}
 		}
@@ -65,13 +70,13 @@
 			position: relative;
 
 			.top-info {
-				.top-info__user-name {
+				&__user-name {
 					padding: 20px 0 0 40px;
 				}
-				.top-info__chat-members {
+				&__chat-members {
 					font-size: 14px;
 					opacity: 0.5;
-					padding:10px 0 0 40px 
+					padding:10px 0 0 40px
 				}
 			}
 			.edit-btn {
@@ -85,7 +90,7 @@
 				right: 40px;
 				border: solid #35537a;
 			}
-			
+
 		}
 		.main-center {
 			height: calc( 100vh - 20vh);
@@ -96,15 +101,15 @@
 				.chat-box {
 					height: 100px;
 					width: 100%;
-					padding: 10px 0 10px 0; 
+					padding: 10px 0 10px 0;
 					.chat-data {
 						padding: 30px 0 10px 40px;
-						.chat__name {
+						&__chat__name {
 							@include black-string;
 							float: left;
 						}
-						.chat__date {
-							padding-left: 10px; 
+						&__chat__date {
+							padding-left: 10px;
 							opacity: 0.5;
 							font-size: 13px;
 							float: left;
@@ -119,18 +124,18 @@
 			}
 		}
 		.main-bottom {
-			height: 10vh; 
+			height: 10vh;
 			width: 100%;
 			background-color: gray;
 			position: relative;
-			.main-bottom__message {
+			&__message {
 				height: 50px;
 				width: 900px;
 				background-color: white;
 				position: absolute;
 				top: 16px;
 				left: 40px;
-				.main-bottom__message--type {
+				&__message--type {
 					padding: 14px;
 					opacity: 0.5;
 				}

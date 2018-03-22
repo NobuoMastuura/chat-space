@@ -8,7 +8,7 @@
 				= link_to "", method: "", class: "setting-btn" do
 					%i.fa.fa-cog.fa-lg.fa-setting
 		.side-bottom
-			= render(partial: "chat-info")
+			= render partial: "chat-info"
 	.main-content
 		.main-top
 			.top-info
@@ -17,7 +17,7 @@
 			%button{class: "edit-btn"} EDIT
 		.main-center
 			.chat-content
-				= render(partial: "chat-content")
+				= render partial: "chat-content"
 		.main-bottom
 			.main-bottom__message
 				.main-bottom__message--type ここにメッセージを残す

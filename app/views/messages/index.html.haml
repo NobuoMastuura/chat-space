@@ -3,24 +3,27 @@
 		.side-top
 			.user-name 松浦展大
 			.side__menu--button
-				%a.fa.fa-edit.fa-lg.fa-new{:href => "https://www.apple.com/jp/mac/"}
-				%a.fa.fa-cog.fa-lg.fa-setting{:href => "https://www.apple.com/jp/mac/"}
+				= link_to "", method: :create do
+					%i.fa.fa-edit.fa-lg.fa-new
+				= link_to "", method: :edit do
+					%i.fa.fa-cog.fa-lg.fa-setting
 		.side-bottom
-			= render :partial => "chat-info"
+			= render(partial: "chat-info")
 	.main-content
 		.main-top
 			.top-info
 				.user-name 松浦展大
 				.chat-members Member: nobuo, sasaki
-			%button{:class => "edit-button"} EDIT
+			%button{class: "edit-button"} EDIT
 		.main-center
 			.chat-content
-				= render :partial => "chat-content"
+				= render(partial: "chat-content")
 		.main-bottom
 			.content-message
 				.message-content ここにメッセージを残す
-				%a.fa.fa-image.fa-image{:href => "https://www.apple.com/jp/mac/"}
-			%input{:type => "submit", :name => "send-button", :value => "Send"}
+				= link_to "", method: :update do
+					%i.fa.fa-image.fa-l-image
+			%input{type: "submit", name: "send-button", value: "Send"}
 
 
 

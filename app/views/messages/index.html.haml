@@ -1,40 +1,26 @@
 .contents
 	.side-content
 		.side-top
-			.user_name 松浦展大
-			.menu_button
-				%t.fa.fa-edit.fa-lg.fa-new
-				%i.fa.fa-cog.fa-lg.fa-setting 
+			.user-name 松浦展大
+			.side__menu--button
+				%a.fa.fa-edit.fa-lg.fa-new{:href => "https://www.apple.com/jp/mac/"}
+				%a.fa.fa-cog.fa-lg.fa-setting{:href => "https://www.apple.com/jp/mac/"}
 		.side-bottom
-			.chat_box
-				%p.user_name 松浦展大
-				%p.user_content コンテンツって、、、、、
-			.chat_box2
-				%p.user_name2 松浦展大
-				%p.user_content2 コンテンツって、、、、、			
+			= render :partial => "chat-info"
 	.main-content
 		.main-top
-			.top_info
-				.user_name 松浦展大
-				.chat_members Member: nobuo, sasaki
-			%button{:class => "edit_button"} EDIT
+			.top-info
+				.user-name 松浦展大
+				.chat-members Member: nobuo, sasaki
+			%button{:class => "edit-button"} EDIT
 		.main-center
-			.chat_content
-				.chat_box
-					.chat_info
-						.chat_name	松浦展大
-						.chat_data	1111/11/11 11:11
-					.chat_content	 JavaSってむずいですね、、、、
-				.chat_box
-					.chat_info
-						.chat_name	松浦展大
-						.chat_data	1111/11/11 11:11
-					.chat_content	 JavaSってむずいですね、、、、
+			.chat-content
+				= render :partial => "chat-content"
 		.main-bottom
-			.content_message
-				.message_content ここにメッセージを残す
-				%i.fa.fa-image.fa-image 
-			%input{:type => "submit", :name => "send_button", :value => "Send"}
+			.content-message
+				.message-content ここにメッセージを残す
+				%a.fa.fa-image.fa-image{:href => "https://www.apple.com/jp/mac/"}
+			%input{:type => "submit", :name => "send-button", :value => "Send"}
 
 
 

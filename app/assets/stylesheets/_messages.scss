@@ -1,3 +1,11 @@
+@mixin white-string {
+	color: white;
+	font-size: 15px;
+}
+@mixin black-string {
+	color: black;
+	font-size: 15px;
+}
 .contents {
 	height: 100%;
 	width: 100%;
@@ -10,13 +18,13 @@
 			width: 100%;
 			background-color: #213042;
 			position: relative;
-				.user_name {
+				.user-name {
 					float: left;
 					font-size: 20px;
 					color: white;
 					padding: 20px 0 20px 40px;
 				}
-				.menu_button {
+				.side__menu--button {
 					position: absolute;
 					top: 24px;
 					right: 20px;
@@ -32,27 +40,16 @@
 			height: calc(100vh - 10vh);
 			width: 100%;
 			background-color: #293c52;
-				.chat_box {
+				.chat-info {
 					height: 100px;
 					width: 200px;
 					padding: 10px 0 10px 40px;
-					.user_name {
-						color: white;
+					.user__name {
+						@include white-string;
 					}
-					.user_content {
-						color: white;
+					.user__message {
+						@include white-string;
 					}
-				}
-				.chat_box2 {
-					height: 100px;
-					width: 200px;
-					padding: 10px 0 10px 40px;
-					.user_name2 {
-						color: white;
-					}
-					.user_content2 {
-						color: white;		
-					}			
 				}
 		}
 	}
@@ -67,17 +64,17 @@
 			background-color: #FFFFFF;
 			position: relative;
 
-			.top_info {
-				.user_name {
+			.top-info {
+				.user-name {
 					padding: 20px 0 0 40px;
 				}
-				.chat_members {
+				.chat-members {
 					font-size: 14px;
 					opacity: 0.5;
 					padding:10px 0 0 40px 
 				}
 			}
-			.edit_button {
+			.edit-button {
 				height: 50px;
 				width: 80px;
 				font-size: 20px;
@@ -94,44 +91,46 @@
 			height: calc( 100vh - 20vh);
 			width: 100%;
 			background-color: #FAFAFA;
-			.chat_content {
+			.chat-content {
 				height: 100px;
-				.chat_box {
+				.chat-box {
 					height: 100px;
 					width: 100%;
-					.chat_info {
-						padding: 50px 0 10px 40px;
-						.chat_name {
+					padding: 10px 0 10px 0; 
+					.chat-data {
+						padding: 30px 0 10px 40px;
+						.chat__name {
+							@include black-string;
 							float: left;
 						}
-						.chat_data {
+						.chat__date {
 							padding-left: 10px; 
 							opacity: 0.5;
 							font-size: 13px;
 							float: left;
 						}
 					}
-					.chat_content {
+					.chat__content {
+						@include black-string;
 						clear: both;
 						padding: 10px 0 10px 40px;
 					}
 				}
 			}
 		}
-
 		.main-bottom {
 			height: 10vh; 
 			width: 100%;
 			background-color: gray;
 			position: relative;
-			.content_message {
+			.content-message {
 				height: 50px;
 				width: 900px;
 				background-color: white;
 				position: absolute;
 				top: 16px;
 				left: 40px;
-				.message_content {
+				.message-content {
 					padding: 14px;
 					opacity: 0.5;
 				}
@@ -151,15 +150,16 @@
 				top: 16px;
 				right: 40px;
 			}
-			
 		}
 	}
 }
 
-// ..contents
-// 	.side-content
-// 		.side-top
-// 		.side-bottom
-// 	.main-content
-// 		.main-top
-// 		.main-bottom
+
+
+
+
+
+
+
+
+

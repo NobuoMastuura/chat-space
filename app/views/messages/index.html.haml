@@ -1,8 +1,8 @@
 .contents
 	.side-content
 		.side-top
-			.user-name 松浦展大
-			.side__menu--button
+			.side-top__user-name 松浦展大
+			.side-top__menu--btn
 				= link_to "", method: :create do
 					%i.fa.fa-edit.fa-lg.fa-new
 				= link_to "", method: :edit do
@@ -12,18 +12,18 @@
 	.main-content
 		.main-top
 			.top-info
-				.user-name 松浦展大
-				.chat-members Member: nobuo, sasaki
-			%button{class: "edit-button"} EDIT
+				.top-info__user-name 松浦展大
+				.top-info__chat-members Member: nobuo, sasaki
+			%button{class: "edit-btn"} EDIT
 		.main-center
 			.chat-content
 				= render(partial: "chat-content")
 		.main-bottom
-			.content-message
-				.message-content ここにメッセージを残す
-				= link_to "", method: :update do
-					%i.fa.fa-image.fa-l-image
-			%input{type: "submit", name: "send-button", value: "Send"}
+			.main-bottom__message
+				.main-bottom__message--type ここにメッセージを残す
+				%i.fa.fa-image.fa-l-image
+					%input{type: "file"}
+			%input{type: "submit", name: "send-btn", value: "Send"}
 
 
 

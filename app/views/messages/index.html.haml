@@ -5,7 +5,7 @@
 			.side-top__menu--btn
 				= link_to "", method: "", class: "new-btn" do
 					%i.fa.fa-edit.fa-lg.fa-new
-				= link_to "", method: "", class: "setting-btn" do
+				= link_to "/users/#{current_user.id}/edit", class: "setting-btn" do
 					%i.fa.fa-cog.fa-lg.fa-setting
 		.side-bottom
 			= render partial: "chat-info"

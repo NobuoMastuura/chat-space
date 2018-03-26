@@ -28,13 +28,17 @@
 					position: absolute;
 					top: 24px;
 					right: 20px;
+					overflow: hidden;
 					.new-btn{
 						text-decoration: none;
+						float: left;
 						.fa-new {
 							color: white;
 						}
 					}
 					.setting-btn{
+						text-decoration: none;
+						float: left;
 						.fa-setting {
 							color: white;
 						}
@@ -49,6 +53,9 @@
 					height: 100px;
 					width: 200px;
 					padding: 10px 0 10px 40px;
+					.sample-chat {
+						text-decoration: none;
+					}
 					.user__name {
 						@include white-string;
 					}

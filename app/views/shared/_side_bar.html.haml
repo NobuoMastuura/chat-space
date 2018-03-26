@@ -18,18 +18,3 @@
 							= group.name
 						.user__message
 							メッセージはまだありません。
-	.main-content
-		.main-top
-			.top-info
-				.top-info__user-name 松浦展大
-				.top-info__chat-members Member: nobuo, sasaki
-			%button{class: "edit-btn"} EDIT
-		.main-center
-			.chat-content
-				= render partial: "chat-content"
-		.main-bottom
-			.main-bottom__message
-				.main-bottom__message--type ここにメッセージを残す
-				%i.fa.fa-image.fa-l-image
-					%input{type: "file"}
-			%input{type: "submit", name: "send-btn", value: "Send"}

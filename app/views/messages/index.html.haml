@@ -1,35 +1,22 @@
 .contents
 	.side-content
-		.side-top
-			%h3.side-top__user-name
-				= current_user.name
-			%ul.side-top__menu--btn
-				%li{class: "new-btn"}
-					= link_to new_group_path do
-						%i.fa.fa-edit.fa-lg.fa-new
-				%li{class: "setting-btn"}
-					= link_to edit_user_path(current_user.id) do
-						%i.fa.fa-cog.fa-lg.fa-setting
+		= render partial: "shared/side-top"
 		.side-bottom
 			.chat-info
 				- current_user.groups.each do |group|
-					= link_to group_messages_path(group), { class: "sample-chat"} do
+					= link_to group_messages_path(group), { class: "chat-content"} do
 						.user__name
 							= group.name
 						.user__message
-							メッセージはまだありません。
+							= group.show_last_message 
 	.main-content
 		.main-top
 			.top-info
-				.top-info__user-name 松浦展大
+				.top-info__user-name
+					= current_user.name
 				.top-info__chat-members Member: nobuo, sasaki
 			%button{class: "edit-btn"} EDIT
-		.main-center
+		.main-center		
 			.chat-content
-				= render partial: "chat-content"
-		.main-bottom
-			.main-bottom__message
-				.main-bottom__message--type ここにメッセージを残す
-				%i.fa.fa-image.fa-l-image
-					%input{type: "file"}
-			%input{type: "submit", name: "send-btn", value: "Send"}
+				= render partial: "shared/message", collection: @messages  
+		= render partial: "shared/main-bottom"

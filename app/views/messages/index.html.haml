@@ -1,6 +1,15 @@
 .contents
 	.side-content
-		= render partial: "shared/side-top"
+		.side-top
+			%h3.side-top__user-name
+				= current_user.name
+			%ul.side-top__menu--btn
+				%li{class: "new-btn"}
+					= link_to new_group_path do
+						%i.fa.fa-edit.fa-lg.fa-new
+				%li{class: "setting-btn"}
+					= link_to edit_user_path(current_user.id) do
+						%i.fa.fa-cog.fa-lg.fa-setting		
 		.side-bottom
 			.chat-info
 				- current_user.groups.each do |group|
@@ -18,5 +27,8 @@
 			%button{class: "edit-btn"} EDIT
 		.main-center		
 			.chat-content
-				= render partial: "shared/message", collection: @messages  
-		= render partial: "shared/main-bottom"
+				= render partial: "message", collection: @messages  
+		= render partial: "main-bottom"
+
+
+

@@ -24,7 +24,7 @@
 				.top-info__user-name
 					= current_user.name
 				.top-info__chat-members 
-					= "Member :  #{@groups.pluck(:name).join(" ")}"
+					= "Member :  #{@groups.pluck(:name).join(" ")}"		
 			%button{class: "edit-btn"} EDIT
 		.main-center		
 			.chat-content

@@ -18,7 +18,6 @@ $(function(){
                   </div>
                 </div>`;
     return html;
-    // <%= image_tag message.image.url, class:'lower-message_image' if message.image.present? %>
   }
   $('.new_message').on('submit', function(e){
     e.preventDefault();

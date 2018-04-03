@@ -1,5 +1,5 @@
 .main-bottom
-  = form_for [@group, @message] do |f|
+  = form_for [@group, @message], {id: "message_form"} do |f|
     = f.text_field :content, class: 'main-bottom__message', placeholder: ' type a message'
     .form__mask
       = f.label :image, class: 'form__mask__image' do

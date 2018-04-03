@@ -1,31 +1,34 @@
 $(function(){
   function buildHTML(message){
-    var html =  `<div class="chat-box">
-                  <div class="chat-data">
-                    <div class="chat-data__chat__name">
-                      <%= message.name %>
+    var html =  `<div class="chat-content">
+                  <div class="chat-box">
+                    <div class="chat-data">
+                      <div class="chat-data__chat__name">
+                        ${message.name}
+                      </div>
+                      <div class="chat-data__chat__date">
+                       ${message.created_at}
+                      </div>
                     </div>
-                    <div class="chat-data__chat__date">
-                      <%= message.created_at %>
-                    </div>
-                  </div>
-                  <div class="chat__content">
-                    <% message.content.present? %>
+                    <div class="chat__content">
                       <p class="lower-message__content">
-                        <%= message.content %>
+                         ${message.content}
                       </p>
-                    <%= image_tag message.image.url, class:'lower-message_image' if message.image.present? %>
+                    </div>
                   </div>
-                </div>`
-    return html:
+                </div>`;
+    return html;
+    // <%= image_tag message.image.url, class:'lower-message_image' if message.image.present? %>
   }
   $('.new_message').on('submit', function(e){
     e.preventDefault();
     var formData = new FormData(this);
-    var url = $(this).attr('action')
+    var url = $(this).attr('action');
+    console.log(formData.get('message[content]'));
+    $('.main-center').animate({scrollTop: $('.main-center')[0].scrollHeight}, 100, 'swing');
     $.ajax({
       url: url,
-      type: "POST",
+      type: 'POST',
       data: formData,
       dataType: 'json',
       processData: false,
@@ -33,11 +36,8 @@ $(function(){
     })
     .done(function(data){
       var html = buildHTML(data);
-      $('.chat-content').append(html)
-      $('.main-bottom__message').val('')
+      $(".chat-contents").append(html)
+      $(".main-bottom__message").val("")
     })
-    .fail(function(){
-      alert('error');
-    })
-  })
+  });
 });

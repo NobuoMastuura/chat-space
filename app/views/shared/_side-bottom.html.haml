@@ -9,7 +9,7 @@
 						%i.fa.fa-edit.fa-lg.fa-new
 				%li{class: "setting-btn"}
 					= link_to edit_user_path(current_user.id) do
-						%i.fa.fa-cog.fa-lg.fa-setting		
+						%i.fa.fa-cog.fa-lg.fa-setting
 		.side-bottom
 			.chat-info
 				- current_user.groups.each do |group|
@@ -17,4 +17,4 @@
 						.user__name
 							= group.name
 						.user__message
-							= group.show_last_message 
+							= group.show_last_message

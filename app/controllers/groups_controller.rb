@@ -29,15 +29,6 @@ class GroupsController < ApplicationController
 		end
 	end
 
-	def search
-		@users = User.where('name LIKE(?)', "%#{params[:keyword]}%").limit(10)
-		respond_to do |format|
-			format.html
-			format.json
-		end
-	end
-
-
 	private
 	def group_params
 		params.require(:group).permit(:name, user_ids: [])

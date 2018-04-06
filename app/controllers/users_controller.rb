@@ -1,8 +1,16 @@
 class UsersController < ApplicationController
-	
+
+	def index
+		@users = User.find(params[:id])
+		respond_to do |format|
+			# format.html
+			format.json
+		end
+	end
+
 	def edit
 	end
-	
+
 	def update
 		if current_user.update(user_params)
 			redirect_to root_path
@@ -17,4 +25,3 @@ class UsersController < ApplicationController
 		params.require(:user).permit(:name, :email)
 	end
 end
-

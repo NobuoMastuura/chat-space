@@ -12,7 +12,6 @@ function appendGroup(group){
               </div>`
   search_list.append(html);
 }
-
 // インクリメンタルサーチに引っかからなかった時
 function appendNoGroup(group){
   var html = `<div class="chat-group-user clearfix">
@@ -20,7 +19,6 @@ function appendNoGroup(group){
               </div>`
   search_list.append(html);
 }
-
 // メンバーを追加する機能
 function appendGroupMember(name, id){
   var html = `<div class='chat-group-user clearfix js-chat-member' id='chat-group-user-${ id }'>
@@ -30,13 +28,12 @@ function appendGroupMember(name, id){
               </div>`
   result_list.append(html);
 }
-
   $("#user-search-field").on("keyup", function(){
     var input = $("#user-search-field").val();
     console.log(input)
     $.ajax({
       type: 'GET',
-      url: '/groups/search',
+      url: '/users',
       data: { keyword: input },
       dataType: 'json'
     })
@@ -67,12 +64,5 @@ function appendGroupMember(name, id){
   // インクリメンタルサーチで追加したユーザーを削除するためのもの
     $("#chat-group-users").on("click", "a", function(){
       $(this).parent().empty();
-    })
-
-
-    $(".chat-group-form__action-btn").on("click", function(e){
-      e.preventDefault();
-      var data = $("#chat-group-users").find('div');
-      console.log(data);
     })
 });

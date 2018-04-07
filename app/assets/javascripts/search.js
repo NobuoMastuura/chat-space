@@ -24,7 +24,7 @@ function appendNoUser(user){
 // メンバーを追加する機能
 function appendGroupMember(name, id){
   var html = `<div class='chat-group-user clearfix js-chat-member' id='chat-group-user-${id}'>
-                <input name='group[user_ids][]' type='hidden' value='${id}'>
+                <input name='group[user_ids][${id}]' type='hidden' value='${id}'>
                 <p class='chat-group-user__name'> ${name} </p>
                 <a class='user-search-remove chat-group-user__btn chat-group-user__btn--remove js-remove-btn'>削除</a>
               </div>`
@@ -35,12 +35,13 @@ function appendGroupMember(name, id){
     var none = ""
     var input = $("#user-search-field").val();
     var current_user = $(".current_user_name").val();
+    console.log(current_user);
     // 空白じゃないときだけajax通信を行う
     if (input != none) {
       $.ajax({
         type: 'GET',
         url: '/users',
-        data: { keyword: input },
+        data: {keyword: input},
         dataType: 'json'
       })
       .done(function(users){
@@ -61,12 +62,12 @@ function appendGroupMember(name, id){
   });
   // インクリメンタルサーチででてきたユーザーを「チャットメンバー」のボックスに追加するため
   $("#user-search-result").on("click", ".user-search-add.chat-group-user__btn.chat-group-user__btn--add",  function(){
-    var id = $(this).attr('data-user-id');
-    var name = $(this).attr('data-user-name');
-    // emptyは要素の子要素を消し去る
-    // removeは要素自体を消し去る
+    var user_id = $(this).attr('data-user-id');
+    var user_name = $(this).attr('data-user-name');
+    // emptyは指定した要素の子要素を消し去る
+    // removeは指定した要素自体を消し去る
     $(this).parent().remove();
-    appendGroupMember(name, id)
+    appendGroupMember(user_name, user_id)
     })
   // インクリメンタルサーチで追加したユーザーを削除するためのもの
     $("#chat-group-users").on("click", ".user-search-remove.chat-group-user__btn.chat-group-user__btn--remove.js-remove-btn", function(){

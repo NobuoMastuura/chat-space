@@ -10,9 +10,7 @@ function appendUser(user, current_user){
                 <p class="chat-group-user__name">${user.name}</p>
                 <a class="user-search-add chat-group-user__btn chat-group-user__btn--add" data-user-id="${user.id}" data-user-name="${user.name}">追加</a>
               </div>`
-  if (user.id != current_user) {
       search_list.append(html);
-  }
 }
 // インクリメンタルサーチに引っかからなかった時
 function appendNoUser(user){
@@ -32,12 +30,9 @@ function appendGroupMember(name, id){
 }
   $("#user-search-field").on("keyup", function(){
     // if文を使って空の状態のときだけajax通信を行う
-    var none = ""
     var input = $("#user-search-field").val();
-    var current_user = $(".current_user_name").val();
-    console.log(current_user);
     // 空白じゃないときだけajax通信を行う
-    if (input != none) {
+    if (!input == "") {
       $.ajax({
         type: 'GET',
         url: '/users',
@@ -48,7 +43,7 @@ function appendGroupMember(name, id){
         $('#user-search-result').empty();
         if (users.length !== 0){
           users.forEach(function(user){
-            appendUser(user, current_user);
+            appendUser(user);
           });
         }
         else {
@@ -61,16 +56,16 @@ function appendGroupMember(name, id){
     }
   });
   // インクリメンタルサーチででてきたユーザーを「チャットメンバー」のボックスに追加するため
-  $("#user-search-result").on("click", ".user-search-add.chat-group-user__btn.chat-group-user__btn--add",  function(){
-    var user_id = $(this).attr('data-user-id');
-    var user_name = $(this).attr('data-user-name');
+  $("#user-search-result").on("click", ".chat-group-user__btn--add",  function(){
+    var user_id = $(this).data('user-id');
+    var user_name = $(this).data('user-name');
     // emptyは指定した要素の子要素を消し去る
     // removeは指定した要素自体を消し去る
     $(this).parent().remove();
     appendGroupMember(user_name, user_id)
     })
   // インクリメンタルサーチで追加したユーザーを削除するためのもの
-    $("#chat-group-users").on("click", ".user-search-remove.chat-group-user__btn.chat-group-user__btn--remove.js-remove-btn", function(){
+    $("#chat-group-users").on("click", ".chat-group-user__btn--remove", function(){
       $(this).parent().remove();
     })
 });

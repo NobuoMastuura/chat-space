@@ -9,15 +9,17 @@
     .chat-group-form__field--left
       = f.label :name, class: 'chat-group-form__label'
     .chat-group-form__field--right
-      = f.text_field :name, class: 'chat__group_name chat-group-form__input', placeholder: 'グループ名を入力してください'
+      = f.text_field :name, class: 'chat__group_name chat-group-form__input', placeholder: 'グループ名を入力してください', type: 'text'
   .chat-group-form__field.clearfix
 
   .chat-group-form__field
     .chat-group-form__field--left
-      = f.label :"チャットメンバーを追加", class: 'chat-group-form__label', for: 'chat_group_チャットメンバーを追加'
+      %label.chat-group-form__label{for: "chat_group_チャットメンバーを追加"} チャットメンバーを追加
+      -# %label :"チャットメンバーを追加", class: 'chat-group-form__label', for: 'chat_group_チャットメンバーを追加'
     .chat-group-form__field--right
       .chat-group-form__search.clearfix
-        = f.text_field  :name, class: 'chat-group-form__input', id: 'user-search-field', placeholder: '追加したいユーザー名を入力してください', type: 'text'
+        %input.chat-group-form__input#user-search-field{placeholder: "追加したいユーザーを入力してください", type: 'text'}
+        -# = text_field  :name, class: 'chat-group-form__input', id: 'user-search-field', placeholder: '追加したいユーザー名を入力してください', type: 'text'
       #user-search-result
     / この部分はインクリメンタルサーチ（ユーザー追加の非同期化のときに使用します
     /

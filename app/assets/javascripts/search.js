@@ -5,7 +5,7 @@ var search_list = $('#user-search-result');
 var result_list = $('#chat-group-users');
 
 // インクリメンタルサーチに引っかかった時
-function appendUser(user, current_user){
+function appendUser(user){
   var html = `<div class="chat-group-user clearfix">
                 <p class="chat-group-user__name">${user.name}</p>
                 <a class="user-search-add chat-group-user__btn chat-group-user__btn--add" data-user-id="${user.id}" data-user-name="${user.name}">追加</a>

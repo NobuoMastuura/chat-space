@@ -7,7 +7,7 @@ $(function(){
                         ${message.name}
                       </div>
                       <div class="chat-data__chat__date">
-                       ${message.created_at}
+                       ${message.data}
                       </div>
                     </div>
                     <div class="chat__content">
@@ -39,4 +39,29 @@ $(function(){
       $(".main-bottom__message").val("")
     })
   });
+  // // 自動更新機能
+  var interval = setInterval(function() {
+    // 他のページに移動したときには自動更新をしないために
+    if (window.location.href.match(/\/groups\/\d+\/messages/)) {
+    $.ajax({
+  // //     // location.hrefとすることで現在のアクションからデータを取得することができる
+  // //     // urlの一番後ろの.jsonっていうのはデータタイプの指定
+      url: location.href,
+      dataType: 'json',
+    })
+  //   // jbulderから受け取った情報がjsonに入っている
+    .done(function(json) {
+      var insertHTML = ""
+      json.forEach(function(message){
+        insertHTML += buildHTML(message);
+      });
+      $(".chat-contents").html(insertHTML);
+      console.log("自動更新")
+    })
+    .fail(function(json) {
+      alert("自動更新に失敗しました");
+    });
+  } else {
+    clearInterval(interval);
+  }}, 5 * 1000 );
 });

@@ -42,7 +42,6 @@ $(function(){
       $('.main-center').animate({scrollTop: $('.main-center')[0].scrollHeight}, 100, 'swing');
     })
   });
-
   // 自動更新機能
   var interval = setInterval(function() {
     // lastメソッドで要素の一番最後のものを取得することができる
@@ -69,7 +68,7 @@ $(function(){
       }
       // var insertHTML = ""
       // console.log(json);
-      // $('.main-center').animate({scrollTop: $('.main-center')[0].scrollHeight}, 100, 'swing');
+      $('.main-center').animate({scrollTop: $('.main-center')[0].scrollHeight}, 100, 'swing');
     })
     .fail(function(json) {
       alert("自動更新に失敗しました");

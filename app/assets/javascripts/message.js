@@ -8,12 +8,12 @@ $(function(){
                         ${message.name}
                       </div>
                       <div class="chat-data__chat__date">
-                       ${message.data}
+                        ${message.data}
                       </div>
                     </div>
                     <div class="chat__content">
                       <p class="lower-message__content">
-                         ${message.content}
+                        ${message.content}
                       </p>
                     </div>
                   </div>
@@ -61,10 +61,8 @@ $(function(){
     .done(function(json) {
       if (json.length !== 0){
         json.forEach(function(message){
-          // insertHTML += buildHTML(message);
           $(".chat-contents").append(buildHTML(message));
         });
-        console.log("自動更新")
       }
       // var insertHTML = ""
       // console.log(json);

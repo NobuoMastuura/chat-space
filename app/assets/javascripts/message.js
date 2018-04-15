@@ -1,6 +1,10 @@
 $(function(){
   // 生成するメッセージ部分
   function buildHTML(message){
+    var insertImage = '';
+    if (message.image) {
+    var insertImage = `<img src="${message.image}", class: "lower-message__image">`;
+    }
     var html =  `<div class="chat-content-main" data-message-id="${message.id}">
                   <div class="chat-box">
                     <div class="chat-data">
@@ -12,9 +16,10 @@ $(function(){
                       </div>
                     </div>
                     <div class="chat__content">
-                      <p class="lower-message__content">
-                        ${message.content}
-                      </p>
+                        <p class="lower-message__content">
+                          ${message.content}
+                        </p>
+                      ${insertImage}
                     </div>
                   </div>
                 </div>`;
@@ -36,9 +41,10 @@ $(function(){
     })
     .done(function(data){
       var html = buildHTML(data);
-      $(".chat-contents").append(html)
-      $(".main-bottom__message").val("")
       $('.form__submit').attr('disabled', false)
+      $(".chat-contents").append(html)
+      $(".hidden").val("")
+      $(".main-bottom__message").val("")
       $('.main-center').animate({scrollTop: $('.main-center')[0].scrollHeight}, 100, 'swing');
     })
   });
@@ -64,8 +70,7 @@ $(function(){
           $(".chat-contents").append(buildHTML(message));
         });
       }
-      // var insertHTML = ""
-      // console.log(json);
+      $('.form__submit').attr('disabled', false)
       $('.main-center').animate({scrollTop: $('.main-center')[0].scrollHeight}, 100, 'swing');
     })
     .fail(function(json) {
